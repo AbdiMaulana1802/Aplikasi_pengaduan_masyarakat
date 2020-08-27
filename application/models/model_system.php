@@ -22,15 +22,42 @@ class Model_system extends CI_Model
 
 	public function simpan_dblaporan()
 	{
+		$nama = $this->input->post('Nama');
+		$tgl_pengaduan = $this->input->post('Tanggal');
+		$nik = $this->input->post('NIK');
+		$judul_laporan =  $this->input->post('Judul');
+		$isi_laporan = $this->input->post('Isi');
+		$status = $this->input->post('proses');
+
+		$foto = $_FILES['Foto'];
+		if ($foto = '') {
+		} else {
+			$config['upload_path'] = './assets/foto';
+			$config['allowed_types'] = 'jpg|png|gif|jpeg';
+			$this->load->library('upload');
+			$this->upload->initialize($config);
+
+			if (!$this->upload->do_upload('Foto')) {
+				echo "gagal upload";
+				die();
+			} else {
+				$foto = $this->upload->data('file_name');
+			}
+		}
+
+
+
+
+
 		$data = array(
 			'id_pengaduan'  => "",
-			'nama'		    => $this->input->post('Nama'),
-			'tgl_pengaduan' => $this->input->post('Tanggal'),
-			'nik'           => $this->input->post('NIK'),
-			'judul_laporan' => $this->input->post('Judul'),
-			'isi_laporan'   => $this->input->post('Isi'),
-			'foto'          => $this->input->post('Foto'),
-			'status'        => $this->input->post('proses')
+			'nama'		    => $nama,
+			'tgl_pengaduan' => $tgl_pengaduan,
+			'nik'           => $nik,
+			'judul_laporan' => $judul_laporan,
+			'isi_laporan'   => $isi_laporan,
+			'foto'			=> $foto,
+			'status'        => $status
 
 
 

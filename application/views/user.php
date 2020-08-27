@@ -181,7 +181,6 @@
 
                     <?php echo form_open_multipart('awal/simpan_datalaporan'); ?>
 
-
                     <div class="container">
                         <!-- header -->
                         <header class="sticky-footer bg-white">
@@ -559,11 +558,17 @@
 
 </html>
 
-</html>
+
+
 
 
 </html>
 
+
+</html>
+
+</html>
+
 </html>
 
 </html>
@@ -571,4 +576,7 @@
 </html>
 
 </html>
+
+</html>
+
 </html>

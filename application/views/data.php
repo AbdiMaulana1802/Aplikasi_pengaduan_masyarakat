@@ -205,7 +205,9 @@
                                         <td> <?php echo $dapor->nik; ?></td>
                                         <td> <?php echo $dapor->judul_laporan; ?></td>
                                         <td> <?php echo $dapor->isi_laporan; ?></td>
-                                        <td> <?php echo $dapor->foto; ?></td>
+                                        <td> <img src="<?php echo base_url(); ?>assets/foto/<?php echo $dapor->foto ?>"
+                                                width="100" height="100">
+                                        </td>
                                         <td> <?php echo $dapor->status; ?></td>
 
 
@@ -441,6 +443,15 @@
 
 
 </html>
+
+
+
+
+
+
+
+
+
 
 
 
