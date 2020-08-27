@@ -179,109 +179,96 @@
                 <div class="container-fluid">
                     <h1 class="h2 mb-4 text-gray-800 ">Tulis Laporan Pengaduan</h1>
 
-                    <form action="<?php echo site_url('awal/simpan_datalaporan'); ?>" method="post">
-
-                        <div class="container">
-                            <!-- header -->
-                            <header class="sticky-footer bg-white">
-                                <div class="container my-auto">
-                                    <div class="copyright text-center my-auto">
-                                        <form action="">
+                    <?php echo form_open_multipart('awal/simpan_datalaporan'); ?>
 
 
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon1">Nama Lengkap</span>
-                                                </div>
+                    <div class="container">
+                        <!-- header -->
+                        <header class="sticky-footer bg-white">
+                            <div class="container my-auto">
+                                <div class="copyright text-center my-auto">
+                                    <form action="">
 
-                                                <input type="text" name="Nama" class="form-control"
-                                                    placeholder="Masukan nama anda" aria-label="Username"
-                                                    aria-describedby="basic-addon1">
+
+                                        <div class="input-group mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">Nama Lengkap</span>
                                             </div>
 
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon1">Tanggal
-                                                        pengaduan</span>
-                                                </div>
+                                            <input type="text" name="Nama" class="form-control"
+                                                placeholder="Masukan nama anda" aria-label="Username"
+                                                aria-describedby="basic-addon1">
+                                        </div>
 
-                                                <input type="date" name="Tanggal" class="form-control"
-                                                    placeholder="Masukan Tanggal pengaduan Anda" aria-label="tanggal"
-                                                    aria-describedby="basic-addon1">
+                                        <div class="input-group mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">Tanggal
+                                                    pengaduan</span>
                                             </div>
 
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon1">NIK</span>
-                                                </div>
+                                            <input type="date" name="Tanggal" class="form-control"
+                                                placeholder="Masukan Tanggal pengaduan Anda" aria-label="tanggal"
+                                                aria-describedby="basic-addon1">
+                                        </div>
 
-                                                <input type="text" name="NIK" class="form-control"
-                                                    placeholder="Masukan NIK  Anda" aria-label="nik"
-                                                    aria-describedby="basic-addon1">
+                                        <div class="input-group mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">NIK</span>
                                             </div>
 
+                                            <input type="text" name="NIK" class="form-control"
+                                                placeholder="Masukan NIK  Anda" aria-label="nik"
+                                                aria-describedby="basic-addon1">
+                                        </div>
 
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon1">Judul</span>
-                                                </div>
 
-                                                <input type="text" name="Judul" class="form-control"
-                                                    placeholder="Masukan judul Laporan Anda" aria-label="judul"
-                                                    aria-describedby="basic-addon1">
+                                        <div class="input-group mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">Judul</span>
                                             </div>
 
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">isi laporan</span>
-                                                </div>
-                                                <textarea name="Isi" class="form-control" aria-label="With textarea"
-                                                    placeholder="Masukan isi Laporan Anda"></textarea>
+                                            <input type="text" name="Judul" class="form-control"
+                                                placeholder="Masukan judul Laporan Anda" aria-label="judul"
+                                                aria-describedby="basic-addon1">
+                                        </div>
+
+                                        <div class="input-group mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">isi laporan</span>
+                                            </div>
+                                            <textarea name="Isi" class="form-control" aria-label="With textarea"
+                                                placeholder="Masukan isi Laporan Anda"></textarea>
+                                        </div>
+
+                                        <div class="input-group mb-4">
+                                            <!-- <div class="input-group-prepend"> -->
+                                            <span class="input-group-text" id="basic-addon1">foto</span>
+
+                                            <input type="file" name="Foto" class="form-control" placeholder=""
+                                                aria-label="foto">
+                                        </div>
+
+
+                                        <div class="input-group mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">Status</span>
                                             </div>
 
-                                            <div class="input-group mb-4">
-                                                <!-- <div class="input-group-prepend"> -->
-                                                <span class="input-group-text" id="basic-addon1">foto</span>
+                                            <select class="form-control" name="proses">
 
-                                                <input type="file" name="Foto" class="form-control" placeholder=""
-                                                    aria-label="foto">
-                                            </div>
+                                                <option>0</option>
+                                                <option>proses</option>
+                                                <option>selesai</option>
 
 
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon1">Status</span>
-                                                </div>
-
-                                                <select class="form-control" name="proses">
-
-                                                    <option>0</option>
-                                                    <option>proses</option>
-                                                    <option>selesai</option>
+                                            </select>
 
 
-                                                </select>
-
-
-                                            </div>
+                                        </div>
 
 
 
 
-
-
-
-
-                                    </div>
-
-
-
-
-
-                                    <div class="input-group mb-4 ">
-                                        <button type="submit" class="btn btn-success">Kirim Laporan</button>
-
-                                    </div>
 
 
 
@@ -289,71 +276,85 @@
                                 </div>
 
 
-                    </form>
+
+
+
+                                <div class="input-group mb-4 ">
+                                    <button type="submit" class="btn btn-success">Kirim Laporan</button>
+
+                                </div>
+
+
+
+
+                            </div>
+                            <?php echo form_close() ?>
+
+                            <!-- </form> -->
+                    </div>
+
+
+
                 </div>
+                </header>
 
-
+                <!-- End of Footer -->
 
             </div>
-            </header>
-
-            <!-- End of Footer -->
+            <!-- End of Content Wrapper -->
 
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End of Page Wrapper -->
 
-    </div>
-    <!-- End of Page Wrapper -->
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
 
 
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
 
 
 
 
 
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your
-                    current session.
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="<?php echo site_url('awal') ?>">Logout</a>
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your
+                        current session.
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="<?php echo site_url('awal') ?>">Logout</a>
+                    </div>
                 </div>
             </div>
+
+            </form>
         </div>
 
-        </form>
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="<?php echo base_url('asset/'); ?>vendor/jquery/jquery.min.js"></script>
-    <script src="<?php echo base_url('asset/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js">
-    </script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="<?php echo base_url('asset/'); ?>vendor/jquery/jquery.min.js"></script>
+        <script src="<?php echo base_url('asset/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js">
+        </script>
 
 
 
 
-    <!-- Core plugin JavaScript-->
+        <!-- Core plugin JavaScript-->
 
-    <script src="<?php echo base_url('asset/'); ?>vendor/jquery-easing/jquery.easing.min.js">
-    </script>
+        <script src="<?php echo base_url('asset/'); ?>vendor/jquery-easing/jquery.easing.min.js">
+        </script>
 
 
 
@@ -361,8 +362,8 @@
 
 
 
-    <!-- Custom scripts for all pages-->
-    <script src="<?php echo base_url('asset/'); ?>js/sb-admin-2.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="<?php echo base_url('asset/'); ?>js/sb-admin-2.min.js"></script>
 
 
 
@@ -552,17 +553,22 @@
 
 
 
-</html>
-
-</html>
 
 
-</html>
 
-</html>
 
 </html>
 
 </html>
 
+
+</html>
+
+</html>
+
+</html>
+
+</html>
+
+</html>
 </html>
