@@ -159,4 +159,23 @@ class awal extends CI_Controller
 		$this->model_system->update_data($id1, $data);
 		redirect('awal/register');
 	}
+
+	public function pdf()
+	{
+
+		ob_start();
+		$data['user1'] = $this->model_system->get_user1();
+		$data['data_user'] = $this->model_system->count_user1();
+		$this->load->view('laporan_pdf', $data);
+
+		$html = ob_get_contents();
+		ob_end_clean();
+
+		require './assets/html2pdf/autoload.php';
+
+		$pdf = new \Spipu\Html2Pdf\Html2Pdf('p', 'A4', 'en');
+		$pdf->WriteHTML($html);
+
+		$pdf->Output('Data_laporan_' . date('d-m-y') . '.pdf', 'D');
+	}
 }

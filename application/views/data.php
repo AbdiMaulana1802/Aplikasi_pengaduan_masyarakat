@@ -143,7 +143,8 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                                    <? echo $user['name']; ?></span>
+                                    <? echo $user['name']; ?>
+                                </span>
                                 <img class="img-profile rounded-circle"
                                     src="<?php echo base_url('assets/img/avatar5.png'); ?>">
                             </a>
@@ -172,10 +173,18 @@
 
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
+
                         <h3 class="m-0 font-weight-bold text-primary">Data Laporan Pengaduan Masyarakat</h3>
                         <form action="<?php echo site_url('awal/simpan_datalaporan'); ?>" method="post">
+
+
+                    </div>
+                    <div class="card-header py-1">
+                        <a class="btn btn-warning" href="<?php echo base_url('awal/pdf') ?>">
+                            <i class="fa fa-file"></i>Export Pdf </a>
                     </div>
                     <div class="card-body">
+
                         <div class="table-responsive">
                             <table class="table table-bordered" id="" width="100%" cellspacing="0">
                                 <thead>
@@ -199,12 +208,13 @@
 										foreach ($user1 as $dapor) {
 									?>
                                     <tr>
-                                        <th scope="row">1</th>
+                                        <td> <?php echo $dapor->id_pengaduan; ?></td>
                                         <td> <?php echo $dapor->nama; ?></td>
                                         <td> <?php echo $dapor->tgl_pengaduan; ?></td>
                                         <td> <?php echo $dapor->nik; ?></td>
                                         <td> <?php echo $dapor->judul_laporan; ?></td>
                                         <td> <?php echo $dapor->isi_laporan; ?></td>
+
                                         <td> <img src="<?php echo base_url(); ?>assets/foto/<?php echo $dapor->foto ?>"
                                                 width="100" height="100">
                                         </td>
@@ -494,10 +504,28 @@
 
 
 
-</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </html>
 
 </html>
+
+</html>
+
 
 </html>

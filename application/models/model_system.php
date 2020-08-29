@@ -3,6 +3,11 @@
 class Model_system extends CI_Model
 {
 
+	// public function tampil_data()
+	// {
+	// 	return $this->db->get('laporan_pengaduan');
+	// }
+
 	public function simpan_db()
 	{
 
@@ -43,38 +48,35 @@ class Model_system extends CI_Model
 			} else {
 				$foto = $this->upload->data('file_name');
 			}
+
+
+
+			$data = array(
+				'id_pengaduan'  => "",
+				'nama'		    => $nama,
+				'tgl_pengaduan' => $tgl_pengaduan,
+				'nik'           => $nik,
+				'judul_laporan' => $judul_laporan,
+				'isi_laporan'   => $isi_laporan,
+				'foto'			=> $foto,
+				'status'        => $status
+
+
+
+
+			);
+
+
+
+			// 'foto'          => $this->input->post('Foto'),
+			// 'status' => $this->input->post(''),
+
+
+
+			$this->db->insert('laporan_pengaduan', $data);
+			header("location:" . base_url() . 'awal/datalaporan');
 		}
-
-
-
-
-
-		$data = array(
-			'id_pengaduan'  => "",
-			'nama'		    => $nama,
-			'tgl_pengaduan' => $tgl_pengaduan,
-			'nik'           => $nik,
-			'judul_laporan' => $judul_laporan,
-			'isi_laporan'   => $isi_laporan,
-			'foto'			=> $foto,
-			'status'        => $status
-
-
-
-
-		);
-
-
-
-		// 'foto'          => $this->input->post('Foto'),
-		// 'status' => $this->input->post(''),
-
-
-
-		$this->db->insert('laporan_pengaduan', $data);
-		header("location:" . base_url() . 'awal/datalaporan');
 	}
-
 
 
 	public function get_user()
