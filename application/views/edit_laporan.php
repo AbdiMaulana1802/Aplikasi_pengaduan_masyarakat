@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin</title>
+    <title>Edit laporan</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url('asset/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
@@ -34,9 +34,9 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-10">
-                    <i class="fas fa-user-shield"></i>
+                    <i class="fas fa-user-secret"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">admin</div>
+                <div class="sidebar-brand-text mx-3">USER</div>
             </a>
 
             <!-- Divider -->
@@ -65,7 +65,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Admin
+                User
             </div>
 
 
@@ -178,119 +178,99 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <h1 class="h2 mb-4 text-gray-800 ">Tanggapan Laporan Pengaduan Masyarakat</h1>
+                    <section>
+                        <h1 class="h2 mb-4 text-gray-800 ">Edit Laporan Pengaduan</h1>
 
-                    <form action="<?php echo site_url('awal/simpan_datalaporan'); ?>" method="post">
-
-                        <div class="container">
-                            <!-- header -->
-                            <header class="sticky-footer bg-white">
-                                <div class="container my-auto">
-                                    <div class="copyright text-center my-auto">
-                                        <form action="">
+                        <?php foreach ($user1 as $dapor) {
+						?>
 
 
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon1">Nama Lengkap</span>
-                                                </div>
+                        <?php echo form_open_multipart('awal/update_laporan'); ?>
 
-                                                <input type="text" name="Nama" class="form-control"
-                                                    placeholder="Masukan nama anda" aria-label="Username"
-                                                    aria-describedby="basic-addon1">
-                                            </div>
-
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon1">Tanggal
-                                                        pengaduan</span>
-                                                </div>
-
-                                                <input type="date" name="Tanggal" class="form-control"
-                                                    placeholder="Masukan Tanggal pengaduan Anda" aria-label="tanggal"
-                                                    aria-describedby="basic-addon1">
-                                            </div>
-
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon1">NIK</span>
-                                                </div>
-
-                                                <input type="text" name="NIK" class="form-control"
-                                                    placeholder="Masukan NIK  Anda" aria-label="nik"
-                                                    aria-describedby="basic-addon1">
-                                            </div>
+                        <div class="form-group">
+                            <label>Nama Lengkap</label>
+                            <input type="hidden" name="id" class="form-control"
+                                value="<?php echo $dapor->id_pengaduan; ?>">
+                            <input type="text" name="name" class="form-control" value="<?php echo $dapor->nama; ?>">
+                        </div>
 
 
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon1">Judul</span>
-                                                </div>
-
-                                                <input type="text" name="Judul" class="form-control"
-                                                    placeholder="Masukan judul Laporan Anda" aria-label="judul"
-                                                    aria-describedby="basic-addon1">
-                                            </div>
-
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">isi laporan</span>
-                                                </div>
-                                                <textarea name="Isi" class="form-control" aria-label="With textarea"
-                                                    placeholder="Masukan isi Laporan Anda"></textarea>
-                                            </div>
-
-                                            <div class="input-group mb-4">
-                                                <!-- <div class="input-group-prepend"> -->
-                                                <span class="input-group-text" id="basic-addon1">foto</span>
-
-                                                <input type="file" name="Foto" class="form-control" placeholder=""
-                                                    aria-label="foto">
-                                            </div>
+                        <div class="form-group">
+                            <label>Tanggal pengaduan</label>
+                            <input type="date" name="tanggal" class="form-control"
+                                value="<?php echo $dapor->tgl_pengaduan; ?>">
+                        </div>
 
 
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon1">Status</span>
-                                                </div>
+                        <div class="form-group">
+                            <label>NIK</label>
+                            <input type="text" name="NIK" class="form-control" value="<?php echo $dapor->nik; ?>">
+                        </div>
 
-                                                <select class="form-control" name="proses">
-
-                                                    <option>0</option>
-                                                    <option>proses</option>
-                                                    <option>selesai</option>
-
-
-                                                </select>
+                        <div class="form-group">
+                            <label>Judul Laporan</label>
+                            <input type="text" name="judul" class="form-control"
+                                value="<?php echo $dapor->judul_laporan; ?>">
+                        </div>
 
 
-                                            </div>
+                        <div class="form-group">
+                            <label>Isi Laporan</label>
+                            <input type="text" name="isi" class="form-control"
+                                value="<?php echo $dapor->isi_laporan; ?>">
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label> Foto</label>
+                            <input type="file" name="Foto" class="form-control" placeholder="" aria-label="foto"
+                                value="<?php echo $dapor->foto ?>">
+                        </div>
+
+
+
+
+
+                        <div class="form-group mb-4">
+                            <label>Status</label>
+
+
+                            <select class="form-control" name="Status" value="<?php echo $dapor->status; ?>">>
+
+                                <option>0</option>
+                                <option>proses</option>
+                                <option>selesai</option>
+
+
+                            </select>
+                        </div>
+
+
+
+
+                        <!-- <div class="form-group">
+                            <label>Status</label>
+
+                           
+                                <option>0</option>
+                                <option>proses</option>
+                                <option>selesai</option>
+                            </select> -->
+
+                        <div class="input-group mb-4 ">
+                            <button type="submit" class="btn btn-success">Kirim Laporan</button>
+
+                        </div>
 
 
 
 
 
 
+                        <?php echo form_close() ?>
+                        <?php } ?>
 
-
-                                    </div>
-
-
-
-
-
-                                    <div class="input-group mb-4 ">
-                                        <button type="submit" class="btn btn-success">Kirim Laporan</button>
-
-                                    </div>
-
-
-
-
-                                </div>
-
-
-                    </form>
+                    </section>
+                    <!-- </form> -->
                 </div>
 
 
@@ -369,113 +349,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 </body>
 
 
 
-</html>
-
-
-
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -503,63 +380,8 @@
 
 
 
-
-
-
-
-
-
-
-
 </html>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</html>
 
 </html>

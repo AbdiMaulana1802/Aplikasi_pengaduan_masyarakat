@@ -148,7 +148,8 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                                    <? echo $user['name']; ?></span>
+                                    <? echo $user['name']; ?>
+                                </span>
                                 <img class="img-profile rounded-circle"
                                     src="<?php echo base_url('assets/img/avatar5.png'); ?>">
                             </a>
@@ -240,7 +241,6 @@
                                         </div>
 
                                         <div class="input-group mb-4">
-                                            <!-- <div class="input-group-prepend"> -->
                                             <span class="input-group-text" id="basic-addon1">foto</span>
 
                                             <input type="file" name="Foto" class="form-control" placeholder=""
@@ -557,6 +557,8 @@
 
 
 </html>
+
+
 
 
 

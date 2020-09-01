@@ -179,10 +179,19 @@
 
 
                     </div>
+                    <!-- // pdf -->
                     <div class="card-header py-1">
                         <a class="btn btn-warning" href="<?php echo base_url('awal/pdf') ?>">
                             <i class="fa fa-file"></i>Export Pdf </a>
+
+                        <!-- excel -->
+
+                        <a class="btn btn-success" href="<?php echo base_url('awal/excel') ?>">
+                            <i class="fa fa-file"></i>Export excel </a>
                     </div>
+
+
+
                     <div class="card-body">
 
                         <div class="table-responsive">
@@ -197,6 +206,7 @@
                                         <th scope="col">Isi Laporan</th>
                                         <th scope="col">Foto</th>
                                         <th scope="col">Status</th>
+                                        <th colspan="2">Action</th>
                                         <!-- <th scope="col">Status</th> -->
                                     </tr>
 
@@ -219,6 +229,19 @@
                                                 width="100" height="100">
                                         </td>
                                         <td> <?php echo $dapor->status; ?></td>
+
+                                        <td
+                                            onclick="javascript: return confirm('apakah anda yakin mau menghapus data ini?')">
+                                            <?php echo anchor(
+														'awal/hapus_laporan/' . $dapor->id_pengaduan,
+														'<button type="button" class="btn btn-danger">Delete</button>'
+													); ?>
+                                        </td>
+                                        <td><?php echo anchor(
+														'awal/edit_laporan/' .  $dapor->id_pengaduan,
+														'<button type="button" class="btn btn-primary">Update</button>'
+													) ?>
+                                        </td>
 
 
                                     </tr>
@@ -453,6 +476,25 @@
 
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
