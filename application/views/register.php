@@ -39,7 +39,7 @@
 
     .form {
         width: 600px;
-        height: 730px;
+        height: 710px;
         margin: 0 auto;
         position: relative;
         background: rgb(0, 0, 0, 0.4);
@@ -52,30 +52,7 @@
         border-radius: 70px 0 70px 0;
     }
 
-    /* .sub-cont {
-        overflow: hidden;
-        position: absolute;
-        left: 0px;
-        top: 0;
-        width: 390px;
-        height: 660px;
-        padding-left: 260px;
-        background: #FF0000;
-        /* background: -webkit-linear-gradient(left, rgb(39, 39, 39), rgb(65, 65, 65)); */
-    /* } */
-    */
-    /* .text {
-        overflow: hidden;
-        z-index: 2;
-        position: absolute;
-        left: 0;
-        padding-top: 230px;
-        padding-left: 75px;
-        color: white;
-        font-weight: bold;
-        text-align: center;
 
-    } */
 
     h2 {
         width: 100%;
@@ -216,13 +193,17 @@
                     <input type="text" name="Email">
                 </label>
                 <label>
+                    <span>No Telpon</span>
+                    <input type="text" name="no_telpon">
+                </label>
+                <label>
                     <span>Password</span>
                     <input type="password" name="pw">
                 </label>
-                <label>
+                <!-- <label>
                     <span>Retype Password</span>
                     <input type="password" name="repass">
-                </label>
+                </label> -->
                 <button type="submit" class="btn btn-secondary">Login</button>
                 <center>
                     <a class="sign-up" href="<?php echo site_url('awal/login') ?>">
@@ -245,8 +226,8 @@
                         <th scope="col">Username</th>
                         <th scope="col">NIK</th>
                         <th scope="col">Email</th>
+                        <th scope="col">No Telpon</th>
                         <th scope="col">Password</th>
-                        <th scope="col">Retype Password</th>
                         <th colspan="2">Action</th>
                     </tr>
                 </thead>
@@ -269,11 +250,12 @@
                             <?php echo $datas->email; ?>
                         </td>
                         <td>
-                            <?php echo $datas->password; ?>
+                            <?php echo $datas->no_telpon; ?>
                         </td>
                         <td>
-                            <?php echo $datas->retype_pasword; ?>
+                            <?php echo $datas->password; ?>
                         </td>
+
 
                         <td onclick="javascript: return confirm('apakah anda yakin mau menghapus data ini?')">
                             <?php echo anchor('awal/hapus/' . $datas->id, '<button type="button" class="btn btn-danger">Delete</button>'); ?>

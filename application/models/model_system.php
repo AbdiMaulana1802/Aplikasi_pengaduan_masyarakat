@@ -3,17 +3,7 @@
 class Model_system extends CI_Model
 {
 
-	// public function cek_signin($akun)
-	// {
-	// 	$petugas = $this->db->get_where('petugas', $akun);
-	// 	$masyarakat = $this->db->get_where('pengaduan_masyarakat(masyarakat)', $akun);
-	// 	if ($petugas->result() == null) {
-	// 		return $masyarakat;
-	// 	} else {
-	// 		return $petugas;
-	// 	}
-	// }
-	///untuk mengecek cek login ke controller
+
 
 	public function cek_signin($where)
 	{
@@ -57,12 +47,13 @@ class Model_system extends CI_Model
 	{
 
 		$data = array(
-			'id' => "",
-			'name' => $this->input->post('nama'),
-			'nik' => $this->input->post('nik'),
-			'email' => $this->input->post('Email'),
-			'password' => $this->input->post('pw'),
-			'retype_pasword' => $this->input->post('repass')
+			'id'             => "",
+			'name'           => $this->input->post('nama'),
+			'nik'            => $this->input->post('nik'),
+			'email'          => $this->input->post('Email'),
+			'no_telpon'      => $this->input->post('no_telpon'),
+			'password'       => $this->input->post('pw'),
+
 
 		);
 

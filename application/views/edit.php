@@ -177,13 +177,14 @@
                     <input type="text" name="Email" value="<?php echo $datas->email; ?>">
                 </label>
                 <label>
+                    <span>No Telpon</span>
+                    <input type="text" name="no_telpon" value="<?php echo $datas->no_telpon; ?>">
+                </label>
+                <label>
                     <span>Password</span>
                     <input type="password" name="pw" value="<?php echo $datas->password; ?>">
                 </label>
-                <label>
-                    <span>Retype Password</span>
-                    <input type="password" name="repass" value="<?php echo $datas->retype_pasword; ?>">
-                </label>
+
                 <button type="submit" class="btn btn-secondary">Simpan</button>
                 <!-- <button type="reset" class="btn btn-danger">Reset</button> -->
 

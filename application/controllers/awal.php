@@ -77,7 +77,8 @@ class awal extends CI_Controller
 				if ($this->session->userdata('status') == 'signin') {
 					header("Location:" . base_url() . 'awal/admin');
 				} else {
-					header("Location:" . base_url());
+					($this->session->userdata('status') == 'signin');
+					header("Location:" . base_url() . 'awal/dashboard');
 				}
 			} else {
 				$current_id = $this->model_system->cek_signin($where)->row(0)->nik;
@@ -137,7 +138,7 @@ class awal extends CI_Controller
 
 
 
-	public function dasboard()
+	public function dashboard()
 	{
 		$this->load->view('dashboard');
 	}
