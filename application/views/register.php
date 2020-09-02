@@ -16,7 +16,7 @@
 
     body {
         width: 100%;
-        height: 400%;
+        height: 500%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -27,19 +27,9 @@
         /* background: -webkit-linear-gradient(left, rgb(138, 137, 137), rgb(87, 87, 87)); */
     }
 
-    /* 
-    .cont {
-        overflow: hidden;
-        position: relative;
-        width: 1000px;
-        height: 620px;
-        background: #fff;
-        border-radius: 10px;
-    } */
-
     .form {
         width: 600px;
-        height: 710px;
+        height: 770px;
         margin: 0 auto;
         position: relative;
         background: rgb(0, 0, 0, 0.4);
@@ -142,6 +132,23 @@
         color: orangered;
         margin-top: 40px;
         margin-left: 80px;
+    }
+
+    .link ul li {
+        display: inline;
+        margin-right: 50px;
+    }
+
+    .link {
+        margin: auto;
+        text-align: right;
+    }
+
+    .link ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 25px;
 
     }
     </style>
@@ -150,28 +157,28 @@
 <body>
     <div class="cont">
         <nav>
-            <div>
-                <ul>
-                    <li><a href="<?php echo site_url('awal'); ?>">Home</a></li>
-                    <li><a href="<?php echo site_url('awal/login'); ?>">Login</a></li>
-                    <li><a href="<?php echo site_url('awal/register') ?>">Register</a></li>
-                    <li><a href="<?php echo site_url('awal/signout') ?>">loguot</a></li>
-                </ul>
+            <div class="link">
+                <div style="background-color:black">
+                    <ul>
+                        <li><a href="<?php echo site_url('awal'); ?>">Home</a></li>
+                        <li><a href="<?php echo site_url('awal/login'); ?>">Login</a></li>
+                        <li><a href="<?php echo site_url('awal/register') ?>">Register</a></li>
+                        <li><a href="<?php echo site_url('awal/signout') ?>">Loguot</a></li>
+                    </ul>
+                </div>
             </div>
 
         </nav>
-        <div class="sub-cont">
-            <div class="text">
 
-                <h1>LAPORAN PENGADUAN MASYARAKAT</h1>
-
-            </div>
-        </div>
 
         <form action="<?php echo site_url('awal/simpan_data'); ?>" method="post">
 
 
+            <div class="text">
 
+                <!-- <h1>LAPORAN PENGADUAN MASYARAKAT</h1> -->
+
+            </div>
 
 
             <div class="form">

@@ -206,15 +206,17 @@ class awal extends CI_Controller
 		$nama1 = $this->input->post('nama');
 		$nik1 = $this->input->post('nik');
 		$Email1 = $this->input->post('Email');
+		$no_telpon1 = $this->input->post('no_telpon');
 		$pw1 = $this->input->post('pw');
-		$repass1 = $this->input->post('repass');
+
 
 		$data = array(
 			'name' => $nama1,
 			'nik' => $nik1,
 			'email' => $Email1,
+			'no_telpon' => $no_telpon1,
 			'password' => $pw1,
-			'retype_pasword' => $repass1
+
 		);
 
 		$this->model_system->update_data($id1, $data);

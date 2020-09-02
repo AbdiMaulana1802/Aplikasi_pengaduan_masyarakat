@@ -44,10 +44,10 @@
 
             <!-- Nav Item - Dashboard -->
             <div class="sidebar-heading">
-                Admin
+                petugas
             </div>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo site_url('awal/dasboard') ?>">
+                <a class="nav-link" href="<?php echo site_url('awal/dashboard') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>

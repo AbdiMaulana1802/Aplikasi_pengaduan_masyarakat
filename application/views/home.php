@@ -34,7 +34,7 @@
                     <li class="menu-active"><a href="awal">Home</a></li>
                     <li><a href="<?php echo site_url('awal/login'); ?>">Login</a></li>
                     <li><a href="<?php echo site_url('awal/register') ?>">Register</a></li>
-                    <li><a href="<?php echo site_url('awal/signout') ?>">loguot</a></li>
+                    <li><a href="<?php echo site_url('awal/signout') ?>">Loguot</a></li>
 
                 </ul>
             </nav><!-- #nav-menu-container -->

@@ -143,13 +143,14 @@
 
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="<?php echo site_url('awal/dasboard') ?>">Dashboard</a>
+                    <a href="<?php echo site_url('awal/dashboard') ?>">Petugas (Tampilan pengaduan)</a>
                 </li>
+                <li>
+                    <a href="<?php echo site_url('awal/admin') ?>">admin</a>
+                </li>
+
                 <li>
                     <a href="<?php echo site_url('awal/user') ?>">User (laporan pengaduan)</a>
-                </li>
-                <li>
-                    <a href="<?php echo site_url('awal/petugas') ?>">Petugas (Tampilan pengaduan)</a>
                 </li>
                 <li>
                     <a href="<?php echo site_url('awal/validasi') ?>">Validasi</a>

@@ -42,7 +42,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo site_url('awal/dasboard') ?>">
+                <a class="nav-link" href="<?php echo site_url('awal/dashboard') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -65,7 +65,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Admin
+                user
             </div>
 
 

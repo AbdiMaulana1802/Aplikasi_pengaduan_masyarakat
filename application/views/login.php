@@ -165,6 +165,25 @@
         color: dodgerblue;
         text-decoration: underline;
     }
+
+
+    .link ul li {
+        display: inline;
+        margin-right: 50px;
+    }
+
+    .link {
+        margin: auto;
+        text-align: center;
+    }
+
+    .link ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 25px;
+
+    }
     </style>
     <title>Login</title>
 </head>
@@ -175,13 +194,15 @@
 
     <div class="cont">
         <nav>
-            <div>
-                <ul>
-                    <li><a href="<?php echo site_url('awal'); ?>">Home</a></li>
-                    <li><a href="<?php echo site_url('awal/login'); ?>">Login</a></li>
-                    <li><a href="<?php echo site_url('awal/register') ?>">Register</a></li>
-                    <li><a href="<?php echo site_url('awal/signout') ?>">loguot</a></li>
-                </ul>
+            <div class="link">
+                <div style="background-color:black">
+                    <ul>
+                        <li><a href="<?php echo site_url('awal'); ?>">Home</a></li>
+                        <li><a href="<?php echo site_url('awal/login'); ?>">Login</a></li>
+                        <li><a href="<?php echo site_url('awal/register') ?>">Register</a></li>
+                        <li><a href="<?php echo site_url('awal/signout') ?>">Loguot</a></li>
+                    </ul>
+                </div>
             </div>
 
         </nav>

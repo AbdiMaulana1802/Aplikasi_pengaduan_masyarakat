@@ -42,20 +42,23 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo site_url('awal/dasboard') ?>">
+                <div class="sidebar-heading">
+                    petugas
+                </div>
+                <a class="nav-link" href="<?php echo site_url('awal/dashboard') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
 
             <!-- Nav Item - Dashboard -->
-            <div class="sidebar-heading">
+            <!-- <div class="sidebar-heading">
                 Admin
             </div>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('awal/admin') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Admin(Tanggapan)</span></a>
-            </li>
+            </li> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider">
