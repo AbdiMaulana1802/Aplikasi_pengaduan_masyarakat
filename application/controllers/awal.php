@@ -65,10 +65,10 @@ class awal extends CI_Controller
 				$current_id   = $this->model_system->cek_signin($where)->row(0)->id_petugas;
 
 				$data_session = array(
-					'id'    => $current_id,
-					'email' => $email,
-					'role'  => $current_role,
-					'status' => 'signin'
+					'id_petugas'  => $current_id,
+					'email'       => $email,
+					'role'        => $current_role,
+					'status'      => 'signin'
 
 				);
 
@@ -77,7 +77,6 @@ class awal extends CI_Controller
 				if ($this->session->userdata('status') == 'signin') {
 					header("Location:" . base_url() . 'awal/admin');
 				} else {
-					($this->session->userdata('status') == 'signin');
 					header("Location:" . base_url() . 'awal/dashboard');
 				}
 			} else {
@@ -170,6 +169,13 @@ class awal extends CI_Controller
 		$this->load->view('data', $data);
 	}
 
+	// public function datalaporan_admin()
+	// {
+	// 	$data['admin'] = $this->model_system->get_user1();
+	// 	$data['data_admin'] = $this->model_system->count_user1();
+	// 	$this->load->view('data', $data);
+	// }
+
 	// untuk delete register
 	public function hapus($id)
 	{
@@ -233,37 +239,14 @@ class awal extends CI_Controller
 
 		$data['user1'] = $this->model_system->get_user1();
 		$data['data_user'] = $this->model_system->count_user1();
-		$this->load->view('edit_laporan', $data);
+		$this->load->view('edit_pengaduan', $data);
 	}
 
 	//untuk update data laporan pengaduan masyarakat
 	public function update_laporan()
 	{
-		$this->model_system->update_datalaporan();
+		$this->model_system->update_pengaduan();
 	}
-
-	// 	$id2           =  $this->input->post('id');
-	// 	$nama2         =  $this->input->post('nama');
-	// 	$tgl_pengaduan2 = $this->input->post('tanggal');
-	// 	$nik2          =  $this->input->post('nik');
-	// 	$judul_laporan2 = $this->input->post('judul');
-	// 	$isi_laporan2   = $this->input->post('isi');
-	// 	$status2        = $this->input->post('status');
-
-	// 	$data = array(
-	// 		'id_pengaduan'  => $id2,
-	// 		'nama'		    => $nama2,
-	// 		'tgl_pengaduan' => $tgl_pengaduan2,
-	// 		'nik'           => $nik2,
-	// 		'judul_laporan' => $judul_laporan2,
-	// 		'isi_laporan'   => $isi_laporan2,
-	// 		'status'        => $status2
-
-	// 	);
-
-	// 	$this->model_system->update_datamasyarakat($id2, $data);
-	// 	redirect('awal/data');
-	// }
 
 
 

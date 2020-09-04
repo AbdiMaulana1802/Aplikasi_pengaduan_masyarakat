@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin</title>
+    <title>Edit laporan</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url('asset/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
@@ -34,28 +34,31 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-10">
-                    <i class="fas fa-user-shield"></i>
+                    <i class="fas fa-user-secret"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">admin</div>
+                <div class="sidebar-brand-text mx-3">USER</div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
             <li class="nav-item">
+                <div class="sidebar-heading">
+                    petugas
+                </div>
                 <a class="nav-link" href="<?php echo site_url('awal/dashboard') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
 
             <!-- Nav Item - Dashboard -->
-            <div class="sidebar-heading">
+            <!-- <div class="sidebar-heading">
                 Admin
             </div>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('awal/admin') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Admin(Tanggapan)</span></a>
-            </li>
+            </li> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -65,7 +68,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                user
+                User
             </div>
 
 
@@ -178,27 +181,99 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <h1 class="h2 mb-4 text-gray-800 ">Tanggapan Laporan Pengaduan Masyarakat</h1>
+                    <section>
+                        <h1 class="h2 mb-4 text-gray-800 ">Edit Laporan Pengaduan</h1>
 
-                    <form action="<?php echo site_url('awal/simpan_datalaporan'); ?>" method="post">
-
-                        <div class="container">
-                            <!-- header -->
-                            <header class="sticky-footer bg-white">
-                                <div class="container my-auto">
-                                    <div class="copyright text-center my-auto">
-                                        <form action="">
+                        <?php foreach ($user1 as $dapor) {
+						?>
 
 
+                        <?php echo form_open_multipart('awal/update_laporan'); ?>
+
+                        <div class="form-group">
+                            <label>Nama Lengkap</label>
+                            <input type="hidden" name="id" class="form-control"
+                                value="<?php echo $dapor->id_pengaduan; ?>">
+                            <input type="text" name="NAME" class="form-control" value="<?php echo $dapor->nama; ?>">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Tanggal pengaduan</label>
+                            <input type="date" name="TANGGAL" class="form-control"
+                                value="<?php echo $dapor->tgl_pengaduan; ?>">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>NIK</label>
+                            <input type="text" name="NIK" class="form-control" value="<?php echo $dapor->nik; ?>">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Judul Laporan</label>
+                            <input type="text" name="JUDUL" class="form-control"
+                                value="<?php echo $dapor->judul_laporan; ?>">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Isi Laporan</label>
+                            <input type="text" name="ISI" class="form-control"
+                                value="<?php echo $dapor->isi_laporan; ?>">
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label> Foto</label>
+                            <input type="file" name="FOTO" class="form-control" placeholder="" aria-label="foto"
+                                value="<?php echo $dapor->foto ?>">
+                        </div>
 
 
 
 
 
-                                    </div>
+                        <div class="form-group mb-4">
+                            <label>Status</label>
 
 
-                    </form>
+                            <select class="form-control" name="STATUS" value="<?php echo $dapor->status; ?>">
+
+                                <option>0</option>
+                                <option>proses</option>
+                                <option>selesai</option>
+
+
+                            </select>
+                        </div>
+
+
+
+
+                        <!-- <div class="form-group">
+                            <label>Status</label>
+
+                           
+                                <option>0</option>
+                                <option>proses</option>
+                                <option>selesai</option>
+                            </select> -->
+
+                        <div class="input-group mb-4 ">
+                            <button type="submit" class="btn btn-success">Kirim Laporan</button>
+
+                        </div>
+
+
+
+
+
+
+                        <?php echo form_close() ?>
+                        <?php } ?>
+
+                    </section>
+                    <!-- </form> -->
                 </div>
 
 
@@ -277,108 +352,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 </body>
 
 
 
-</html>
-
-
-
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -411,63 +388,8 @@
 
 
 
-
-
-
-
-
-
-
-
 </html>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</html>
 
 </html>

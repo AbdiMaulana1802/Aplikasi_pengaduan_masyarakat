@@ -237,7 +237,7 @@
                             <label>Status</label>
 
 
-                            <select class="form-control" name="Status" value="<?php echo $dapor->status; ?>">>
+                            <select class="form-control" name="Status" value="<?php echo $dapor->status; ?>">
 
                                 <option>0</option>
                                 <option>proses</option>
@@ -353,6 +353,7 @@
 
 
 </body>
+
 
 
 
