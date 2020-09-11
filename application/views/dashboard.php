@@ -146,7 +146,7 @@
                     <a href="<?php echo site_url('awal/dashboard') ?>">Petugas (Tampilan pengaduan)</a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url('awal/admin') ?>">admin</a>
+                    <a href="<?php echo site_url('awal/datalaporan_admin') ?>">admin</a>
                 </li>
 
                 <li>

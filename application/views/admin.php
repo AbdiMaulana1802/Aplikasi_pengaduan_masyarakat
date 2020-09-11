@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin</title>
+    <title>Laporan data admin</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url('asset/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
@@ -36,25 +36,20 @@
                 <div class="sidebar-brand-icon rotate-n-10">
                     <i class="fas fa-user-shield"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">admin</div>
+                <div class="sidebar-brand-text mx-3">Admin</div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
+
+            <!-- Nav Item - Dashboard -->
+            <div class="sidebar-heading">
+                petugas
+            </div>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo site_url('awal/dashboard') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
-            </li>
-
-            <!-- Nav Item - Dashboard -->
-            <div class="sidebar-heading">
-                Admin
-            </div>
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo site_url('awal/admin') ?>">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Admin(Tanggapan)</span></a>
             </li>
 
             <!-- Divider -->
@@ -65,7 +60,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                user
+                User
             </div>
 
 
@@ -176,35 +171,112 @@
                 </nav>
                 <!-- End of Topbar -->
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-                    <h1 class="h2 mb-4 text-gray-800 ">Tanggapan Laporan Pengaduan Masyarakat</h1>
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
 
-                    <form action="<?php echo site_url('awal/simpan_datalaporan'); ?>" method="post">
-
-                        <div class="container">
-                            <!-- header -->
-                            <header class="sticky-footer bg-white">
-                                <div class="container my-auto">
-                                    <div class="copyright text-center my-auto">
-                                        <form action="">
+                        <h3 class="m-0 font-weight-bold text-primary">Data Laporan Pengaduan Masyarakat admin</h3>
 
 
+                    </div>
+                    <!-- // pdf -->
+                    <div class="card-header py-1">
+                        <a class="btn btn-warning" href="<?php echo base_url('awal/pdf') ?>">
+                            <i class="fa fa-file"></i>Export Pdf </a>
+
+                        <!-- excel -->
+
+                        <a class="btn btn-success" href="<?php echo base_url('awal/excel') ?>">
+                            <i class="fa fa-file"></i>Export excel </a>
+                    </div>
+
+
+
+                    <div class="card-body">
+
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">NO</th>
+                                        <th scope="col">Nama Lengkap</th>
+                                        <th scope="col">Tanggal Pengaduan</th>
+                                        <th scope="col">Nik</th>
+                                        <th scope="col">Judul</th>
+                                        <th scope="col">Isi Laporan</th>
+                                        <th scope="col">Foto</th>
+                                        <th scope="col">Status</th>
+                                        <th colspan="2">Action</th>
+                                        <!-- <th scope="col">Status</th> -->
+                                        1
+                                    </tr>
+
+
+                                </thead>
+                                <tbody>
+                                    <?php
+									if ($data_user > 0) {
+										foreach ($user1 as $dapor) {
+									?>
+                                    <tr>
+                                        <td> <?php echo $dapor->id_pengaduan; ?></td>
+                                        <td> <?php echo $dapor->nama; ?></td>
+                                        <td> <?php echo $dapor->tgl_pengaduan; ?></td>
+                                        <td> <?php echo $dapor->nik; ?></td>
+                                        <td> <?php echo $dapor->judul_laporan; ?></td>
+                                        <td> <?php echo $dapor->isi_laporan; ?></td>
+
+                                        <td> <img src="<?php echo base_url(); ?>assets/foto/<?php echo $dapor->foto ?>"
+                                                width="100" height="100">
+                                        </td>
+                                        <td> <?php echo $dapor->status; ?></td>
+
+                                        <td
+                                            onclick="javascript: return confirm('apakah anda yakin mau menghapus data ini?')">
+                                            <?php echo anchor(
+														'awal/hapus_laporan/' . $dapor->id_pengaduan,
+														'<button type="button" class="btn btn-danger">Delete</button>'
+													); ?>
+                                        </td>
+                                        <td><?php echo anchor(
+														'awal/edit_laporan/' .  $dapor->id_pengaduan,
+														'<button type="button" class="btn btn-primary">Update</button>'
+													) ?>
+                                        </td>
+
+
+                                    </tr>
+                                    <?php }
+									} else {
+										?>
+                                    <tr>
+                                        <td colspan="8">
+                                            <center> NO Data Entry</center>
+                                        </td>
+                                    </tr>
+                                    <?php
+									}
+
+									?>
 
 
 
 
 
-                                    </div>
+                                </tbody>
 
+
+                            </table>
+                        </div>
+                    </div>
 
                     </form>
                 </div>
 
-
-
             </div>
-            </header>
+
+
+
+
 
             <!-- End of Footer -->
 
@@ -247,8 +319,6 @@
                 </div>
             </div>
         </div>
-
-        </form>
     </div>
 
     <!-- Bootstrap core JavaScript-->
@@ -296,6 +366,117 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </html>
 
 
@@ -405,69 +586,16 @@
 
 
 
-</html>
-
-
-
-
-
-
-
-
-
 
 
 
 
 </html>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</html>
 
 </html>
+
+
 
 </html>

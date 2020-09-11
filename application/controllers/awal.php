@@ -44,6 +44,12 @@ class awal extends CI_Controller
 	{
 		$this->model_system->simpan_dblaporan();
 	}
+	public function simpan_dataAdmin()
+	{
+		$this->model_system->simpan_dbAdmin();
+	}
+
+
 
 
 	public function check_login()
@@ -75,7 +81,7 @@ class awal extends CI_Controller
 				$this->session->set_userdata($data_session);
 
 				if ($this->session->userdata('status') == 'signin') {
-					header("Location:" . base_url() . 'awal/admin');
+					header("Location:" . base_url() . 'awal/datalaporan_admin');
 				} else {
 					header("Location:" . base_url() . 'awal/dashboard');
 				}
@@ -161,7 +167,7 @@ class awal extends CI_Controller
 		$this->load->view('admin');
 	}
 
-	//fungsi data laporan
+	//fungsi data laporan user
 	public function datalaporan()
 	{
 		$data['user1'] = $this->model_system->get_user1();
@@ -169,12 +175,17 @@ class awal extends CI_Controller
 		$this->load->view('data', $data);
 	}
 
-	// public function datalaporan_admin()
-	// {
-	// 	$data['admin'] = $this->model_system->get_user1();
-	// 	$data['data_admin'] = $this->model_system->count_user1();
-	// 	$this->load->view('data', $data);
-	// }
+
+	// untuk ketampilan admin
+	public function datalaporan_admin()
+	{
+		$data['user1'] = $this->model_system->get_user1();
+		$data['data_user'] = $this->model_system->count_user1();
+		$this->load->view('admin', $data);
+	}
+
+
+
 
 	// untuk delete register
 	public function hapus($id)

@@ -18,29 +18,6 @@ class Model_system extends CI_Model
 	}
 
 
-	// get data pengaduan berdasarkan nik
-	// public function ambilData()
-	// {
-	// 	$nik = $this->session->userdata('nik');
-	// 	$query = $this->db->query("SELECT * FROM `pengaduan_masyarakat(masyarakat)` WHERE `nik` = '$nik'");
-	// 	return $query->result();
-	// }
-
-	// // tampil data pengaduan berdasarkan status 0
-	// public function tampil_pengaduanbaru()
-	// {
-	// 	$query = $this->db->query("SELECT * FROM `pengaduan_masyarakat(masyarakat` WHERE `status` = '0'");
-	// 	return $query->result();
-	// }
-
-	// // hitung data berdasarkan status 0
-	// public function HitungData1()
-	// {
-	// 	$this->db->where('status', '0');
-	// 	return $this->db->count_all_results('pengaduan_masyarakat(masyarakat');
-	// }
-
-
 
 
 	public function simpan_db()
@@ -66,12 +43,12 @@ class Model_system extends CI_Model
 
 	public function simpan_dblaporan()
 	{
-		$nama = $this->input->post('Nama');
+		$nama          = $this->input->post('Nama');
 		$tgl_pengaduan = $this->input->post('Tanggal');
-		$nik = $this->input->post('NIK');
-		$judul_laporan =  $this->input->post('Judul');
-		$isi_laporan = $this->input->post('Isi');
-		$status = $this->input->post('proses');
+		$nik           = $this->input->post('NIK');
+		$judul_laporan = $this->input->post('Judul');
+		$isi_laporan   = $this->input->post('Isi');
+		$status        = $this->input->post('proses');
 
 		$foto = $_FILES['Foto'];
 		if ($foto = '') {
@@ -110,42 +87,92 @@ class Model_system extends CI_Model
 		}
 	}
 
-	//get register
+
+	public function simpan_dbAdmin()
+	{
+		$nama          = $this->input->post('Nama');
+		$tgl_pengaduan = $this->input->post('Tanggal');
+		$nik           = $this->input->post('NIK');
+		$judul_laporan = $this->input->post('Judul');
+		$isi_laporan   = $this->input->post('Isi');
+		$status        = $this->input->post('proses');
+
+		$foto = $_FILES['Foto'];
+		if ($foto = '') {
+		} else {
+			$config['upload_path'] = './assets/foto';
+			$config['allowed_types'] = 'jpg|png|gif|jpeg';
+			$this->load->library('upload');
+			$this->upload->initialize($config);
+
+			if (!$this->upload->do_upload('Foto')) {
+				echo "gagal upload";
+				die();
+			} else {
+				$foto = $this->upload->data('file_name');
+			}
+			$data = array(
+				'id_pengaduan'  => "",
+				'nama'		    => $nama,
+				'tgl_pengaduan' => $tgl_pengaduan,
+				'nik'           => $nik,
+				'judul_laporan' => $judul_laporan,
+				'isi_laporan'   => $isi_laporan,
+				'foto'			=> $foto,
+				'status'        => $status
+
+
+
+
+			);
+
+			$this->db->insert('laporan_admin', $data);
+			header("location:" . base_url() . 'awal/datalaporan_admin');
+		}
+	}
+
+
+
+	// register get  dan count
 
 	public function get_user()
 	{
 		$data = $this->db->get('tabel_user');
 		return $data->result();
 	}
-	//get laporan di user
-	public function get_user1()
-	{
-		$data = $this->db->get('laporan_pengaduan');
-		return $data->result();
-	}
-	//get admin
-	// public function get_admin()
-	// {
-	// 	$data = $this->db->get('laporan_pengaduan');
-	// 	return $data->result();
-	// }
-
 	public function count_user()
 	{
 		$data = $this->db->get('tabel_user');
 		return $data->num_rows();
+	}
+	//get dan count laporan di user
+	public function get_user1()
+	{
+		$data = $this->db->get('laporan_pengaduan');
+		return $data->result();
 	}
 	public function count_user1()
 	{
 		$data = $this->db->get('laporan_pengaduan');
 		return $data->num_rows();
 	}
-	//count admin
+
+
+
+	//get admin
+	// public function get_admin()
+	// {
+	// 	$data = $this->db->get('laporan_pengaduan');
+	// 	return $data->result();
+	// }
+	// //count admin
 	// public function count_admin()
 	// {
 	// 	$data = $this->db->get('laporan_pengaduan');
 	// 	return $data->num_rows();
 	// }
+
+
 
 	//untuk mngecek login
 	public function cek_login($table, $where)
@@ -189,46 +216,6 @@ class Model_system extends CI_Model
 		$this->db->update('tabel_user');
 	}
 
-	//untuk update data laporan
-
-	// public function update_datalaporan()
-	// {
-	// 	$data = array(
-	// 		// 'id_pengaduan'  =>$this->input->post('id'),
-	// 		'nama'          => $this->input->post('name'),
-	// 		'tgl_pengaduan' => $this->input->post('tanggal'),
-	// 		'nik'           => $this->input->post('NIK'),
-	// 		'judul_laporan' => $this->input->post('judul'),
-	// 		'isi_laporan'   => $this->input->post('isi'),
-	// 		'status'        => $this->input->post('Status'),
-	// 	);
-
-	// 	$where = array(
-	// 		'id_pengaduan' => $this->input->post('id'),
-	// 	);
-
-	// 	$foto = $_FILES['Foto'];
-	// 	if ($foto = '') {
-	// 	} else {
-	// 		$config['upload_path'] = './assets/foto';
-	// 		$config['allowed_types'] = 'jpg|png|gif|jpeg';
-	// 		$this->load->library('upload');
-	// 		$this->upload->initialize($config);
-
-	// 		if (!$this->upload->do_upload('Foto')) {
-	// 			echo "gagal upload";
-	// 			die();
-	// 		} else {
-	// 			$foto = $this->upload->data('file_name');
-	// 		}
-
-
-
-
-	// 		$this->db->update('laporan_pengaduan', $data, $where, $foto);
-	// 		header("Location:" . base_url() . 'awal/datalaporan');
-	// 	}
-	// }
 
 	public function update_pengaduan()
 	{
