@@ -6,7 +6,9 @@ class awal extends CI_Controller
 {
 	public function __construct()
 	{
-		parent::__construct();
+
+
+		Parent::__construct();
 		$this->load->model('model_system');
 	}
 
@@ -162,10 +164,10 @@ class awal extends CI_Controller
 		$this->load->view('validasi');
 	}
 
-	public function admin()
-	{
-		$this->load->view('admin');
-	}
+	// public function admin()
+	// {
+	// 	$this->load->view('admin');
+	// }
 
 	//fungsi data laporan user
 	public function datalaporan()
@@ -219,12 +221,12 @@ class awal extends CI_Controller
 	public function update()
 	{
 
-		$id1 = $this->input->post('id');
-		$nama1 = $this->input->post('nama');
-		$nik1 = $this->input->post('nik');
-		$Email1 = $this->input->post('Email');
+		$id1        = $this->input->post('id');
+		$nama1      = $this->input->post('nama');
+		$nik1       = $this->input->post('nik');
+		$Email1     = $this->input->post('Email');
 		$no_telpon1 = $this->input->post('no_telpon');
-		$pw1 = $this->input->post('pw');
+		$pw1        = $this->input->post('pw');
 
 
 		$data = array(

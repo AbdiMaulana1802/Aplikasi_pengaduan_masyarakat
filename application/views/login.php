@@ -8,13 +8,6 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.min.css') ?>">
 
     <style type="text/css">
-    /* * {
-        font-family: 'Gotham';
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    } */
-
     body {
         width: 100%;
         height: 100vh;

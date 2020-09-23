@@ -50,17 +50,7 @@
                     <span>Dashboard</span></a>
             </li>
 
-            <!-- Nav Item - Dashboard -->
-            <!-- <div class="sidebar-heading">
-                Admin
-            </div>
-            <li class="nav-item">
-                <a class="nav-link" href="">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Admin(Tanggapan)</span></a>
-            </li> -->
 
-            <!-- Divider -->
             <hr class="sidebar-divider">
 
 
