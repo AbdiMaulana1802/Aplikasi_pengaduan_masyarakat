@@ -58,30 +58,33 @@
 
 
 
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                admin
+            </div>
+
+
+
+            <!-- Nav Item - Validasi -->
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo site_url('awal/datalaporan_admin') ?>">
+                    <i class="fas fa-table"></i>
+                    <span>Data Admin</span></a>
+            </li>
+
             <!-- Heading -->
             <div class="sidebar-heading">
                 User
             </div>
 
-
-            <!-- Nav Item - User -->
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo site_url('awal/user') ?>">
-                    <i class="fas fa-user"></i>
-                    <span>User(Laporan Pengaduan)</span></a>
-            </li>
-
-
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
             <!-- Nav Item - Validasi -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo site_url('awal/datalaporan') ?>">
+                <a class="nav-link" href="<?php echo site_url('siswa') ?>">
                     <i class="fas fa-table"></i>
-                    <span>Data</span></a>
+                    <span>Data Pengaduan</span></a>
             </li>
+
 
 
             <!-- Divider -->
@@ -207,7 +210,7 @@
                                         <th scope="col">Status</th>
                                         <th colspan="2">Action</th>
                                         <!-- <th scope="col">Status</th> -->
-                                        1
+
                                     </tr>
 
 
@@ -357,244 +360,18 @@
 
 
 
+
+
+
+
+
+
+
+
+
 </body>
 
 
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</html>
-
-</html>
-
-</html>
 
 
 

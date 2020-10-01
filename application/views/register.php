@@ -151,6 +151,10 @@
         font-size: 25px;
 
     }
+
+    ::-webkit-input-placeholder {
+        color: whitesmoke;
+    }
     </style>
 </head>
 
@@ -171,7 +175,12 @@
         </nav>
 
 
-        <form action="<?php echo site_url('awal/simpan_data'); ?>" method="post">
+
+
+
+
+
+        <form action="<?php echo site_url('awal/register'); ?>" method="post">
 
 
             <div class="text">
@@ -189,23 +198,33 @@
 
                 <label>
                     <span>Username</span>
-                    <input type="text" name="nama" placeholder="">
+                    <input type="text" name="nama" placeholder="Masukan Nama Anda" class="input">
+                    <?php echo form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
+
                 </label>
                 <label>
                     <span>NIK</span>
-                    <input type="text" name="nik">
+                    <input type="text" name="nik" placeholder="Masukan NIK Anda" class="input">
+                    <?php echo form_error('nik', '<small class="text-danger pl-3">', '</small>'); ?>
+
                 </label>
                 <label>
                     <span>Email</span>
-                    <input type="text" name="Email">
+                    <input type="text" name="Email" placeholder="Masukan Email Anda" class="input">
+                    <?php echo form_error('Email', '<small class="text-danger pl-3">', '</small>'); ?>
+
                 </label>
                 <label>
                     <span>No Telpon</span>
-                    <input type="text" name="no_telpon">
+                    <input type="text" name="no_telpon" placeholder="Masukan No Telpon Anda" class="input">
+                    <?php echo form_error('no_telpon', '<small class="text-danger pl-3">', '</small>'); ?>
+
                 </label>
                 <label>
                     <span>Password</span>
-                    <input type="password" name="pw">
+                    <input type="password" name="pw" placeholder="Masukan Password Anda" class="input">
+                    <?php echo form_error('pw', '<small class="text-danger pl-3">', '</small>'); ?>
+
                 </label>
                 <!-- <label>
                     <span>Retype Password</span>

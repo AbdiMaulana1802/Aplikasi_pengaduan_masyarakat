@@ -16,6 +16,25 @@ class Model_system extends CI_Model
 			return $petugas;
 		}
 	}
+	// Fungsi untuk validasi form tambah dan ubah
+	public function validation($mode)
+	{
+		$this->load->library('form_validation'); // Load library form_validation untuk proses validasinya
+		// Tambahkan if apakah $mode save atau update
+		// Karena ketika update, NIS tidak harus divalidasi
+		// Jadi NIS di validasi hanya ketika menambah data siswa saja
+		if ($mode == "save")
+
+			$this->form_validation->set_rules('nama', 'Nama', 'required|max_length[50]');
+		$this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
+		$this->form_validation->set_rules('nik', 'NIK', 'required|numeric|max_length[11]');
+		$this->form_validation->set_rules('judul', 'Judul laporan', 'required');
+		$this->form_validation->set_rules('isi', 'Isi Laporan', 'required');
+		if ($this->form_validation->run()) // Jika validasi benar
+			return true; // Maka kembalikan hasilnya dengan TRUE
+		else // Jika ada data yang tidak sesuai validasi
+			return false; // Maka kembalikan hasilnya dengan FALSE
+	}
 
 
 
@@ -134,7 +153,10 @@ class Model_system extends CI_Model
 
 
 	// register get  dan count
-
+	public function view()
+	{
+		return $this->db->get('laporan_pengaduan')->result();
+	}
 	public function get_user()
 	{
 		$data = $this->db->get('tabel_user');

@@ -57,28 +57,26 @@
 
 
             <!-- Heading -->
+
+
+
+            <!-- Nav Item - User -->
+
+
+
+
+
+            <!-- Divider -->
             <div class="sidebar-heading">
                 User
             </div>
 
 
-            <!-- Nav Item - User -->
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo site_url('awal/user') ?>">
-                    <i class="fas fa-user"></i>
-                    <span>User(Laporan Pengaduan)</span></a>
-            </li>
-
-
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
             <!-- Nav Item - Validasi -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo site_url('awal/datalaporan') ?>">
+                <a class="nav-link" href="<?php echo site_url('siswa') ?>">
                     <i class="fas fa-table"></i>
-                    <span>Data</span></a>
+                    <span>Data Pengaduan</span></a>
             </li>
 
 
@@ -550,6 +548,13 @@
 
 
 </html>
+
+
+
+
+
+
+
 
 
 

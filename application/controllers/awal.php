@@ -8,7 +8,8 @@ class awal extends CI_Controller
 	{
 
 
-		Parent::__construct();
+		parent::__construct();
+		$this->load->library('form_validation');
 		$this->load->model('model_system');
 	}
 
@@ -23,10 +24,31 @@ class awal extends CI_Controller
 	//register
 	public function register()
 	{
+		$this->form_validation->set_rules('nama', 'Nama', 'required|trim');
+		$this->form_validation->set_rules('nik', 'NIK', 'required|trim');
+		$this->form_validation->set_rules('Email', 'EMAIL', 'required|trim|valid_email');
+		$this->form_validation->set_rules('no_telpon', 'NO Telpon', 'required|trim');
+		$this->form_validation->set_rules('pw', 'Password', 'required|trim');
 
-		$data['user'] = $this->model_system->get_user();
-		$data['c_user'] = $this->model_system->count_user();
-		$this->load->view('register', $data);
+		if ($this->form_validation->run() == false) {
+			$data['user'] = $this->model_system->get_user();
+			$data['c_user'] = $this->model_system->count_user();
+			$this->load->view('register', $data);
+		} else {
+			$data = array(
+				'id'             => "",
+				'name'           => $this->input->post('nama'),
+				'nik'            => $this->input->post('nik'),
+				'email'          => $this->input->post('Email'),
+				'no_telpon'      => $this->input->post('no_telpon'),
+				'password'       => $this->input->post('pw'),
+
+
+			);
+
+			$this->db->insert('tabel_user', $data);
+			header("location:" . base_url() . 'awal/login');
+		}
 	}
 
 	public function login()
@@ -36,7 +58,7 @@ class awal extends CI_Controller
 
 
 
-	///simpen data
+	// /simpen data
 	public function simpan_data()
 	{
 		$this->model_system->simpan_db();
@@ -110,37 +132,27 @@ class awal extends CI_Controller
 		}
 	}
 
-
-	// 	$cek = $this->model_system->cek_login("tabel_user", $where)->num_rows();
-
-	// 	if ($cek > 0) {
-	// 		$data_session = array(
-	// 			'email' => $email,
-	// 			'status' => 'signin'
-
-	// 		);
-
-
-
-	// 		$this->session->set_userdata($data_session);
-	// 		if ($this->session->userdata('status') == 'signin') {
-	// 			header("location:" . base_url() . 'awal/admin');
-	// 		} else {
-	// 			echo 'login Gagal';
-	// 		}
-	// 	} else {
-	// 		echo 'Email dan password yang anda masukan salah!';
-	// 	}
-	// }
-
-
-
-
-	public function signout()
+	public function simpan()
 	{
-		$this->session->sess_destroy();
-		redirect(base_url());
+		if ($this->model_system->validation("save")) { // Jika validasi sukses atau hasil validasi adalah true
+			$this->model_system->save(); // Panggil fungsi save() yang ada di model_system-.php
+			// Load ulang view.php agar data yang baru bisa muncul di tabel pada view.php
+			$html = $this->load->view('data', array('model' => $this->model_system->view()), true);
+			$callback = array(
+				'status' => 'sukses',
+				'pesan' => 'Data berhasil disimpan',
+				'html' => $html
+			);
+		} else {
+			$callback = array(
+				'status' => 'gagal',
+				'pesan' => validation_errors()
+			);
+		}
+		echo json_encode($callback);
 	}
+
+
 
 
 
@@ -294,5 +306,11 @@ class awal extends CI_Controller
 		$data['user1'] = $this->model_system->get_user1();
 		$data['data_user'] = $this->model_system->count_user1();
 		$this->load->view('laporan_pdf', $data);
+	}
+
+	public function signout()
+	{
+		$this->session->sess_destroy();
+		redirect(base_url());
 	}
 }
